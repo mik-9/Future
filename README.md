@@ -1,2 +1,117 @@
 # Future
 Quelle vision de l'avenir
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma vision de l'avenir</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2em; max-width: 1000px; margin: auto; line-height: 1.6; }
+    h1, h2 { color: #2c3e50; }
+    .section { margin-bottom: 2.5em; }
+    label { display: block; margin: 0.5em 0 0.3em; }
+    textarea, input[type=text], select { width: 100%; padding: 0.5em; margin-bottom: 0.5em; }
+    .grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em; }
+    .cell { border: 2px solid #ccc; padding: 1em; border-radius: 10px; background: #f9f9f9; }
+    .cell.selected { border-color: #007bff; background: #e6f0ff; }
+    .pistes { margin-top: 1em; }
+    .pistes .card { background: #f0f0f0; padding: 1em; border-radius: 8px; margin-bottom: 0.5em; }
+  </style>
+  <script>
+    function selectCell(id) {
+      document.querySelectorAll('.cell').forEach(el => el.classList.remove('selected'));
+      document.getElementById(id).classList.add('selected');
+      document.getElementById('pistes-1').style.display = id === 'cell1' ? 'block' : 'none';
+      document.getElementById('pistes-2').style.display = id === 'cell2' ? 'block' : 'none';
+      document.getElementById('pistes-3').style.display = id === 'cell3' ? 'block' : 'none';
+      document.getElementById('pistes-4').style.display = id === 'cell4' ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+  <h1>Ma vision de l'avenir</h1>
+
+  <div class="section">
+    <h2>1. Quel est le sujet d'avenir qui vous intéresse ou vous préoccupe ?</h2>
+    <p><em>(personnel, professionnel, sociétal…)</em></p>
+    <textarea rows="3" placeholder="Ex : transition écologique, intelligence artificielle, éducation, etc."></textarea>
+  </div>
+
+  <div class="section">
+    <h2>2. Comment percevez-vous l'évolution de ce sujet ?</h2>
+    <label><input type="radio" name="evolution" value="degrade"> Il se dégrade</label>
+    <label><input type="radio" name="evolution" value="stable"> Il reste stable</label>
+    <label><input type="radio" name="evolution" value="ameliore"> Il s'améliore</label>
+  </div>
+
+  <div class="section">
+    <h2>3. Quel est votre pouvoir personnel pour agir sur ce sujet ?</h2>
+    <label><input type="radio" name="pouvoir" value="faible"> Je me sens impuissant</label>
+    <label><input type="radio" name="pouvoir" value="moyen"> J’ai un pouvoir limité</label>
+    <label><input type="radio" name="pouvoir" value="fort"> Je me sens puissant</label>
+  </div>
+
+  <div class="section">
+    <h2>4. Où vous situez-vous aujourd’hui ?</h2>
+    <p><em>Cliquez sur la case qui correspond le mieux à votre ressenti actuel</em></p>
+    <div class="grid-2x2">
+      <div id="cell1" class="cell" onclick="selectCell('cell1')">
+        <strong>Case 1</strong><br>
+        L’avenir se dégrade <br> et je me sens capable de l’améliorer.
+      </div>
+      <div id="cell2" class="cell" onclick="selectCell('cell2')">
+        <strong>Case 2</strong><br>
+        L’avenir se dégrade <br> et je n’ai aucun pouvoir pour agir.
+      </div>
+      <div id="cell3" class="cell" onclick="selectCell('cell3')">
+        <strong>Case 3</strong><br>
+        L’avenir s’améliore <br> mais je n’ai aucun pouvoir dessus.
+      </div>
+      <div id="cell4" class="cell" onclick="selectCell('cell4')">
+        <strong>Case 4</strong><br>
+        L’avenir s’améliore <br> et je me sens capable de le renforcer.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Quelle case aimeriez-vous occuper à l’avenir ?</h2>
+    <textarea rows="2" placeholder="Exprimez votre souhait d’évolution personnelle…"></textarea>
+  </div>
+
+  <div class="section">
+    <h2>6. Quelle vision de l’avenir souhaitez-vous ?</h2>
+    <textarea rows="3" placeholder="Décrivez ce futur souhaité en quelques lignes..."></textarea>
+  </div>
+
+  <div class="section">
+    <h2>7. Pistes de réflexion associées à votre positionnement</h2>
+
+    <div id="pistes-1" class="pistes" style="display:none">
+      <div class="card">✔️ Identifiez des actions concrètes à initier dès maintenant.</div>
+      <div class="card">✔️ Rassemblez des alliés pour renforcer votre impact.</div>
+    </div>
+
+    <div id="pistes-2" class="pistes" style="display:none">
+      <div class="card">🔍 Cherchez à mieux comprendre les leviers d'action possibles.</div>
+      <div class="card">📚 Renseignez-vous sur des initiatives inspirantes.</div>
+    </div>
+
+    <div id="pistes-3" class="pistes" style="display:none">
+      <div class="card">👀 Restez en veille pour détecter les tendances émergentes.</div>
+      <div class="card">🤝 Participez à des discussions pour mieux vous impliquer.</div>
+    </div>
+
+    <div id="pistes-4" class="pistes" style="display:none">
+      <div class="card">🚀 Multipliez les actions positives déjà engagées.</div>
+      <div class="card">📈 Partagez votre énergie avec ceux qui doutent encore.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. Quelle première action concrète pouvez-vous entreprendre ?</h2>
+    <textarea rows="3" placeholder="Une idée, une habitude, un projet personnel à initier..."></textarea>
+  </div>
+</body>
+</html>
